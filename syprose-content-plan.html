@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syprose Pop-Up Wine Bar — Instagram Content Plan</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, serif; background: #FAF6F0; color: #1A0A12; }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #7B2D42 0%, #1A0A12 60%, #1C3A5E 100%);
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .header-eyebrow {
+      font-size: 12px; letter-spacing: 0.2em; color: #C9973B;
+      font-family: sans-serif; margin-bottom: 8px; text-transform: uppercase;
+    }
+    .header h1 { font-size: clamp(24px, 5vw, 40px); color: #fff; font-weight: 700; line-height: 1.15; }
+    .header-sub { margin-top: 10px; color: rgba(255,255,255,0.7); font-size: 15px; font-family: sans-serif; }
+    .tabs { margin-top: 18px; display: flex; justify-content: center; gap: 12px; }
+    .tab-btn {
+      padding: 10px 28px; border-radius: 30px; cursor: pointer;
+      font-family: sans-serif; font-size: 14px; letter-spacing: 0.05em;
+      transition: all 0.2s; border: 1px solid rgba(255,255,255,0.3);
+      background: transparent; color: #fff;
+    }
+    .tab-btn.active {
+      background: #C9973B; color: #1A0A12; font-weight: 700; border-color: #C9973B;
+    }
+
+    /* CONTENT */
+    .content { max-width: 860px; margin: 0 auto; padding: 24px 16px 60px; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .intro-text { font-family: sans-serif; font-size: 14px; color: #8B7355; margin-bottom: 24px; line-height: 1.6; }
+
+    /* ACCORDION */
+    .accordion { margin-bottom: 16px; }
+    .accordion-header {
+      width: 100%; text-align: left; background: #fff;
+      border-radius: 12px; padding: 16px 20px; cursor: pointer;
+      display: flex; align-items: center; gap: 12px;
+      border: 2px solid #ccc; transition: border-radius 0.1s;
+    }
+    .accordion-header.open { border-radius: 12px 12px 0 0; }
+    .accordion-emoji { font-size: 22px; }
+    .accordion-label { flex: 1; }
+    .accordion-title { font-weight: 700; font-size: 16px; }
+    .accordion-count { font-size: 12px; font-family: sans-serif; color: #8B7355; margin-top: 2px; }
+    .accordion-arrow { font-size: 18px; font-family: sans-serif; }
+    .accordion-body {
+      background: #fff; border: 2px solid #ccc; border-top: none;
+      border-radius: 0 0 12px 12px; display: none;
+    }
+    .accordion-body.open { display: block; }
+
+    /* IDEA CARD */
+    .idea-card { padding: 20px 24px; border-bottom: 1px solid #FAF6F0; }
+    .idea-card:last-child { border-bottom: none; }
+    .idea-title { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+    .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .badge {
+      font-size: 11px; font-family: sans-serif; padding: 3px 10px;
+      border-radius: 20px; font-weight: 600; color: #fff;
+    }
+    .badge-outline {
+      font-size: 11px; font-family: sans-serif; padding: 3px 10px;
+      border-radius: 20px; color: #8B7355;
+      border: 1px solid rgba(139,115,85,0.2); background: #FAF6F0;
+    }
+    .caption-box {
+      background: #FAF6F0; border-radius: 8px; padding: 14px 16px;
+      font-size: 14px; line-height: 1.65; margin-bottom: 10px;
+      white-space: pre-line; border-left: 3px solid #ccc;
+    }
+    .hashtags { font-size: 12px; font-family: sans-serif; font-style: italic; }
+
+    /* WEEK CARDS */
+    .week-accordion { margin-bottom: 14px; }
+    .week-header {
+      width: 100%; text-align: left; border-radius: 12px;
+      padding: 14px 20px; cursor: pointer;
+      display: flex; align-items: center; gap: 14px;
+      border: 2px solid #1A0A12; transition: all 0.2s;
+      background: #fff;
+    }
+    .week-header.open { border-radius: 12px 12px 0 0; background: #1A0A12; }
+    .week-badge {
+      background: #C9973B; color: #1A0A12; border-radius: 8px;
+      padding: 4px 12px; font-family: sans-serif; font-size: 12px;
+      font-weight: 700; white-space: nowrap;
+    }
+    .week-info { flex: 1; }
+    .week-theme { font-weight: 700; font-size: 15px; color: #1A0A12; }
+    .week-header.open .week-theme { color: #fff; }
+    .week-dates { font-size: 12px; font-family: sans-serif; color: #8B7355; margin-top: 2px; }
+    .week-header.open .week-dates { color: rgba(255,255,255,0.6); }
+    .week-arrow { font-size: 18px; font-family: sans-serif; color: #1A0A12; }
+    .week-header.open .week-arrow { color: #C9973B; }
+
+    .week-body {
+      background: #fff; border: 2px solid #1A0A12;
+      border-top: none; border-radius: 0 0 12px 12px; display: none;
+    }
+    .week-body.open { display: block; }
+    .week-note {
+      background: rgba(28,58,94,0.06); padding: 10px 20px;
+      font-size: 12px; font-family: sans-serif; color: #1C3A5E;
+      border-bottom: 1px solid #FAF6F0; display: flex; gap: 8px; align-items: center;
+    }
+    .post-row {
+      padding: 18px 24px; border-bottom: 1px solid #FAF6F0;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .post-row:last-child { border-bottom: none; }
+    .post-day { min-width: 110px; font-family: sans-serif; font-size: 12px; color: #8B7355; padding-top: 3px; line-height: 1.4; }
+    .post-info { flex: 1; }
+    .post-title { font-weight: 600; font-size: 14px; line-height: 1.4; margin-top: 6px; }
+    .post-goal { margin-top: 6px; font-size: 12px; font-family: sans-serif; color: #4A7C59; display: flex; align-items: center; gap: 5px; }
+
+    /* FIFA INFO BAR */
+    .fifa-bar {
+      background: linear-gradient(90deg, rgba(28,58,94,0.08), rgba(28,58,94,0.02));
+      border: 1px solid rgba(28,58,94,0.2); border-radius: 10px;
+      padding: 12px 18px; margin-bottom: 24px; font-family: sans-serif;
+      font-size: 13px; color: #1C3A5E; display: flex; gap: 10px; align-items: center;
+    }
+
+    /* FORMAT LEGEND */
+    .legend-box { margin-top: 28px; background: #fff; border-radius: 12px; padding: 18px 20px; }
+    .legend-title {
+      font-family: sans-serif; font-size: 12px; font-weight: 700; color: #8B7355;
+      margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .legend-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    /* PRO TIP */
+    .pro-tip {
+      margin-top: 32px; padding: 16px 20px; background: rgba(123,45,66,0.05);
+      border-radius: 10px; border: 1px dashed rgba(123,45,66,0.25);
+      font-family: sans-serif; font-size: 13px; color: #7B2D42; line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">Instagram Content Strategy</div>
+  <h1>Syprose Pop-Up Wine Bar</h1>
+  <div class="header-sub">FIFA World Cup 2026 + Summer Edition · June 14 – July 25</div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('ideas')">💡 Post Ideas</button>
+    <button class="tab-btn" onclick="switchTab('calendar')">📅 6-Week Calendar</button>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- POST IDEAS PANEL -->
+  <div id="panel-ideas" class="tab-panel active">
+    <p class="intro-text">14 post concepts across 4 content pillars — built for the FIFA World Cup moment and summer catering season. Each includes caption direction, format, and hashtags.</p>
+
+    <!-- FIFA Watch Party -->
+    <div class="accordion">
+      <button class="accordion-header" style="border-color:#1C3A5E" onclick="toggleAccordion(this)">
+        <span class="accordion-emoji">⚽</span>
+        <div class="accordion-label">
+          <div class="accordion-title" style="color:#1C3A5E">FIFA Watch Party</div>
+          <div class="accordion-count">5 post concepts</div>
+        </div>
+        <span class="accordion-arrow" style="color:#1C3A5E">▼</span>
+      </button>
+      <div class="accordion-body" style="border-color:#1C3A5E">
+        <div class="idea-card">
+          <div class="idea-title">"The Pour That Pairs With The Game"</div>
+          <div class="badges">
+            <span class="badge" style="background:#7B2D42">Reel</span>
+            <span class="badge-outline">Product + Event</span>
+          </div>
+          <div class="caption-box" style="border-color:#1C3A5E">Argentina vs. whoever. We're not picking sides — but we are pouring Malbec. 🍷⚽ Catch us at [location] for the match. Link in bio for bookings.</div>
+          <div class="hashtags" style="color:#1C3A5E">#FIFA2026 #WorldCup2026 #WineAndFootball #PopUpWineBar #WineSnitchVibes</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-title">"World Cup Wine Map"</div>
+          <div class="badges">
+            <span class="badge" style="background:#1C3A5E">Carousel (12 slides)</span>
+            <span class="badge-outline">Education + Engagement</span>
+          </div>
+          <div class="caption-box" style="border-color:#1C3A5E">Every group stage country, one bottle. We matched 12 nations to their most iconic wine. Which one's your team pouring? 🌍🍷 Save this for the tournament.</div>
+          <div class="hashtags" style="color:#1C3A5E">#WorldCup2026 #WineEducation #WineAndSoccer #FIFA26 #WineSomm</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-title">"Pre-Match Setup B-Roll"</div>
+          <div class="badges">
+            <span class="badge" style="background:#7B2D42">Reel (15 sec, no talking)</span>
+            <span class="badge-outline">Vibe/Aesthetic</span>
+          </div>
+          <div class="caption-box" style="border-color:#1C3A5E">Glasses. Ice bucket. Kickoff in 30 minutes. This is how we do match day. 🥂⏱️</div>
+          <div class="hashtags" style="color:#1C3A5E">#WatchParty #WorldCup2026 #PopUpBar #WineVibes #SummerSips</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-title">"Your Team's Wine"</div>
+          <div class="badges">
+            <span class="badge" style="background:#C9973B">Static Post</span>
+            <span class="badge-outline">Engagement Bait / Fun</span>
+          </div>
+          <div class="caption-box" style="border-color:#1C3A5E">🇧🇷 Brazil = Vinho Verde. 🇫🇷 France = Bordeaux. 🇺🇸 USA = Oregon Pinot. Who's your squad and what's in your glass? Drop your team below ⬇️</div>
+          <div class="hashtags" style="color:#1C3A5E">#FIFA2026 #WorldCupWine #WineLovers #FutbolAndWine #WineSnitchPours</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-title">"Halftime Sip Sponsor"</div>
+          <div class="badges">
+            <span class="badge" style="background:#4A7C59">Story series (3 frames)</span>
+            <span class="badge-outline">Event Promo</span>
+          </div>
+          <div class="caption-box" style="border-color:#1C3A5E">You pause the match. We pour the wine. Halftime was made for this. 🍷⏸️ Find us at [pop-up location].</div>
+          <div class="hashtags" style="color:#1C3A5E">#WorldCup2026 #WatchPartyVibes #PopUpWineBar #FIFA26Wine</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summer Pop-Up Life -->
+    <div class="accordion">
+      <button class="accordion-header" style="border-color:#C9973B" onclick="toggleAccordion(this)">
+        <span class="accordion-emoji">☀️</span>
+        <div class="accordion-label">
+          <div class="accordion-title" style="color:#C9973B">Summer Pop-Up Life</div>
+          <div class="accordion-count">4 post concepts</div>
+        </div>
+        <span class="accordion-arrow" style="color:#C9973B">▼</span>
+      </button>
+      <div class="accordion-body" style="border-color:#C9973B">
+        <div class="idea-card">
+          <div class="idea-title">"Where's Syprose This Weekend?"</div>
+          <div class="badges">
+            <span class="badge" style="background:#7B2D42">Story + Feed Post</span>
+            <span class="badge-outline">Event Announcement</span>
+          </div>
+          <div class="caption-box" style="border-color:#C9973B">The bar is coming to you. This Saturday we're set up at [venue/market/rooftop]. Come sip, stay a while. 📍[Location] | Link in bio.</div>
+          <div class="hashtags" style="color:#C9973B">#PopUpWineBar #SeattleWine #SummerPop #WineSnitchEvent #WeekendVibes</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-title">"Behind the Bar Setup"</div>
+          <div class="badges">
+            <span class="badge" style="background:#7B2D42">Reel (timelapse setup)</span>
+            <span class="badge-outline">BTS / Founder Story</span>
+          </div>
+          <div class="caption-box" style="border-color:#C9973B">6am load-in. By noon, the bar is ready. This is what it looks like before the first pour. 🍾 The work behind the wine.</div>
+          <div class="hashtags" style="color:#C9973B">#BehindTheBar #WomensWineLife #PopUpLife #WineCatering #BlackOwnedBar</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-title">"3 Summer Wines You Need Right Now"</div>
+          <div class="badges">
+            <span class="badge" style="background:#1C3A5E">Carousel (4 slides)</span>
+            <span class="badge-outline">Education + Conversion</span>
+          </div>
+          <div class="caption-box" style="border-color:#C9973B">Rosé is fine. But have you tried these? Our top 3 pours for summer heat:
+
+1️⃣ [Wine] — [one line]
+2️⃣ [Wine] — [one line]
+3️⃣ [Wine] — [one line]
+
+Come taste them yourself. 📍 [Next pop-up]</div>
+          <div class="hashtags" style="color:#C9973B">#SummerWine #WineList #TopWines #WineSomm #PopUpWineBar</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-title">"Book Syprose for Your Summer Event"</div>
+          <div class="badges">
+            <span class="badge" style="background:#C9973B">Static (branded graphic)</span>
+            <span class="badge-outline">Service Promo / CTA</span>
+          </div>
+          <div class="caption-box" style="border-color:#C9973B">Corporate happy hour? Rooftop birthday? Backyard dinner party? We show up, we set up, we pour. 🍷✨ DMs open. Link in bio for inquiries.</div>
+          <div class="hashtags" style="color:#C9973B">#WineCatering #EventWineBar #HireUs #WeddingBar #SummerEvents</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Founder & Brand Voice -->
+    <div class="accordion">
+      <button class="accordion-header" style="border-color:#7B2D42" onclick="toggleAccordion(this)">
+        <span class="accordion-emoji">👑</span>
+        <div class="accordion-label">
+          <div class="accordion-title" style="color:#7B2D42">Founder &amp; Brand Voice</div>
+          <div class="accordion-count">2 post concepts</div>
+        </div>
+        <span class="accordion-arrow" style="color:#7B2D42">▼</span>
+      </button>
+      <div class="accordion-body" style="border-color:#7B2D42">
+        <div class="idea-card">
+          <div class="idea-title">"Why I Started a Pop-Up Wine Bar"</div>
+          <div class="badges">
+            <span class="badge" style="background:#2D5A3D">Talking head Reel (30–45 sec)</span>
+            <span class="badge-outline">Founder Story</span>
+          </div>
+          <div class="caption-box" style="border-color:#7B2D42">I didn't see wine spaces that felt like home. So I built one — and I bring it to you. ❤️🍷 Syprose is for the people who love wine without the pretension.</div>
+          <div class="hashtags" style="color:#7B2D42">#WomenInWine #BlackWineOwner #FounderStory #WineCommunity #PopUpCulture</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-title">"A Day With Syprose (Day in the Life)"</div>
+          <div class="badges">
+            <span class="badge" style="background:#7B2D42">Reel (POV-style)</span>
+            <span class="badge-outline">BTS / Humanize Brand</span>
+          </div>
+          <div class="caption-box" style="border-color:#7B2D42">From grocery run to glass pour. Here's everything that happens before you show up and sip. 🍷📦🚗</div>
+          <div class="hashtags" style="color:#7B2D42">#DayInMyLife #WineEntrepreneur #BlackBusinessOwner #PopUpLife #WineSomm</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Community & Engagement -->
+    <div class="accordion">
+      <button class="accordion-header" style="border-color:#4A7C59" onclick="toggleAccordion(this)">
+        <span class="accordion-emoji">💬</span>
+        <div class="accordion-label">
+          <div class="accordion-title" style="color:#4A7C59">Community &amp; Engagement</div>
+          <div class="accordion-count">3 post concepts</div>
+        </div>
+        <span class="accordion-arrow" style="color:#4A7C59">▼</span>
+      </button>
+      <div class="accordion-body" style="border-color:#4A7C59">
+        <div class="idea-card">
+          <div class="idea-title">"Red or White for Summer?"</div>
+          <div class="badges">
+            <span class="badge" style="background:#4A7C59">Poll Story / Static Post</span>
+            <span class="badge-outline">Engagement</span>
+          </div>
+          <div class="caption-box" style="border-color:#4A7C59">The eternal debate — summer edition. 🍷🤍 Drop your vote below: Red vs. White (we're counting).</div>
+          <div class="hashtags" style="color:#4A7C59">#WinePoll #RedOrWhite #WineLovers #SummerWine #SipSeason</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-title">"Tag Someone You'd Share This Bottle With"</div>
+          <div class="badges">
+            <span class="badge" style="background:#C9973B">Static Post (beautiful wine photo)</span>
+            <span class="badge-outline">UGC / Virality</span>
+          </div>
+          <div class="caption-box" style="border-color:#4A7C59">Good wine is better with good company. Who's getting tagged? 🍾 (And where do you two want to find us this summer?)</div>
+          <div class="hashtags" style="color:#4A7C59">#WineNight #TagAFriend #WineForTwo #SummerVibes #WineSnitchPours</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-title">"Customer Spotlight / Testimonial"</div>
+          <div class="badges">
+            <span class="badge" style="background:#8B7355">Quote Graphic or Reel Clip</span>
+            <span class="badge-outline">Social Proof</span>
+          </div>
+          <div class="caption-box" style="border-color:#4A7C59">"[Client quote about the event/catering]" — [Name, event type] 🙌 This is why we show up. Thank you for having us.</div>
+          <div class="hashtags" style="color:#4A7C59">#WineCatering #ClientLove #EventWineBar #WineExperience #Syprose</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pro-tip"><strong>Pro tip:</strong> Batch-film content at your next pop-up setup — grab B-roll of the pour, the setup, guest reactions, and the table spread. One 2-hour shoot can fuel 3–4 weeks of Reels with minimal effort between events.</div>
+  </div>
+
+  <!-- CALENDAR PANEL -->
+  <div id="panel-calendar" class="tab-panel">
+    <div class="fifa-bar">
+      <span style="font-size:18px">⚽</span>
+      <span><strong>FIFA World Cup 2026</strong> runs June 11 – July 19 across USA, Canada &amp; Mexico. 48 teams, 104 matches — the biggest cultural moment of summer 2026.</span>
+    </div>
+    <p class="intro-text">3 posts per week across 6 weeks — mix of Reels, carousels, stories, and static posts. Posting days staggered Mon/Wed/Fri-Sat to maximize reach windows.</p>
+
+    <!-- WEEK 1 -->
+    <div class="week-accordion">
+      <button class="week-header" onclick="toggleWeek(this)">
+        <div class="week-badge">Week 1</div>
+        <div class="week-info">
+          <div class="week-theme">🌍 World Cup Kickoff — The World Is Watching</div>
+          <div class="week-dates">June 14–20</div>
+        </div>
+        <span class="week-arrow">▼</span>
+      </button>
+      <div class="week-body">
+        <div class="week-note">💡 <strong>Strategy note:</strong> World Cup started June 11 — jump in Day 3 with energy</div>
+        <div class="post-row">
+          <div class="post-day">Mon Jun 16</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#7B2D42">Reel</span></div>
+            <div class="post-title">World Cup Wine Map — Match Every Nation to a Bottle</div>
+            <div class="post-goal">🎯 Reach / Save</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Wed Jun 18</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#4A7C59">Story Series</span></div>
+            <div class="post-title">Poll: Who's winning AND what are you drinking?</div>
+            <div class="post-goal">🎯 Engagement</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Fri Jun 20</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#C9973B">Static Post</span></div>
+            <div class="post-title">Your Team's Wine — Drop Your Country Below</div>
+            <div class="post-goal">🎯 Comments / Shares</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week-accordion">
+      <button class="week-header" onclick="toggleWeek(this)">
+        <div class="week-badge">Week 2</div>
+        <div class="week-info">
+          <div class="week-theme">☀️ Summer Is Here — Pop-Up Season Is Open</div>
+          <div class="week-dates">June 21–27</div>
+        </div>
+        <span class="week-arrow">▼</span>
+      </button>
+      <div class="week-body">
+        <div class="week-note">💡 <strong>Strategy note:</strong> Summer solstice June 21 — lean into season transition</div>
+        <div class="post-row">
+          <div class="post-day">Mon Jun 23</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#7B2D42">Reel</span></div>
+            <div class="post-title">Behind the Bar Setup — What It Takes to Bring the Bar to You</div>
+            <div class="post-goal">🎯 Brand Story / BTS</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Wed Jun 25</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#C9973B">Static Post</span></div>
+            <div class="post-title">Where's Syprose This Weekend? [Pop-Up Location Announcement]</div>
+            <div class="post-goal">🎯 Event Awareness</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Sat Jun 28</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#4A7C59">Story</span></div>
+            <div class="post-title">Live from the pop-up — real-time content, reposts of guests</div>
+            <div class="post-goal">🎯 Live Engagement</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="week-accordion">
+      <button class="week-header" onclick="toggleWeek(this)">
+        <div class="week-badge">Week 3</div>
+        <div class="week-info">
+          <div class="week-theme">⚽ Round of 32 + 🇺🇸 Fourth of July Energy</div>
+          <div class="week-dates">June 28–Jul 4</div>
+        </div>
+        <span class="week-arrow">▼</span>
+      </button>
+      <div class="week-body">
+        <div class="week-note">💡 <strong>Strategy note:</strong> Knockout rounds start; July 4 patriotic hook</div>
+        <div class="post-row">
+          <div class="post-day">Mon Jun 30</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#1C3A5E">Carousel</span></div>
+            <div class="post-title">3 Summer Wines You Need Right Now (before the knockout rounds knock you out)</div>
+            <div class="post-goal">🎯 Save / Education</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Wed Jul 2</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#7B2D42">Reel</span></div>
+            <div class="post-title">Pre-Match Setup B-Roll — Glasses. Ice. Kickoff in 30.</div>
+            <div class="post-goal">🎯 Aesthetic / Shares</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Fri Jul 4</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#C9973B">Static Post</span></div>
+            <div class="post-title">🇺🇸 USA is still in it. So are we. Red + White + Rosé for the holiday.</div>
+            <div class="post-goal">🎯 Holiday Engagement</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="week-accordion">
+      <button class="week-header" onclick="toggleWeek(this)">
+        <div class="week-badge">Week 4</div>
+        <div class="week-info">
+          <div class="week-theme">🔥 Quarterfinals — High Stakes, High Pours</div>
+          <div class="week-dates">July 5–11</div>
+        </div>
+        <span class="week-arrow">▼</span>
+      </button>
+      <div class="week-body">
+        <div class="week-note">💡 <strong>Strategy note:</strong> QF: July 5–9. Biggest match drama = biggest content window</div>
+        <div class="post-row">
+          <div class="post-day">Tue Jul 7</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#2D5A3D">Talking Head Reel</span></div>
+            <div class="post-title">Why I Started Syprose (Founder story — drop during high-traffic QF week)</div>
+            <div class="post-goal">🎯 Brand / Reach</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Thu Jul 10</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#4A7C59">Story Poll</span></div>
+            <div class="post-title">Red or White for the Quarters? (You vote, we pour.)</div>
+            <div class="post-goal">🎯 Engagement</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Sat Jul 12</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#C9973B">Static / Graphic</span></div>
+            <div class="post-title">Book Syprose for Your Summer Event — We're Still Taking July Dates</div>
+            <div class="post-goal">🎯 Conversion / Bookings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 5 -->
+    <div class="week-accordion">
+      <button class="week-header" onclick="toggleWeek(this)">
+        <div class="week-badge">Week 5</div>
+        <div class="week-info">
+          <div class="week-theme">🏆 Semifinal Week — Sip Like a Champion</div>
+          <div class="week-dates">July 12–18</div>
+        </div>
+        <span class="week-arrow">▼</span>
+      </button>
+      <div class="week-body">
+        <div class="week-note">💡 <strong>Strategy note:</strong> Semis July 14–15; Final buzz building — max cultural moment</div>
+        <div class="post-row">
+          <div class="post-day">Mon Jul 14</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#1C3A5E">Carousel</span></div>
+            <div class="post-title">The Pour That Pairs With the Semis — Our Semifinal Wine Picks by Country</div>
+            <div class="post-goal">🎯 Save / Education</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Wed Jul 16</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#7B2D42">Reel</span></div>
+            <div class="post-title">Day in the Life of Syprose — POV-style event week</div>
+            <div class="post-goal">🎯 Brand Story</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Fri Jul 18</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#C9973B">Static Post</span></div>
+            <div class="post-title">Tag Someone You'd Watch the Final With 🍾 (Final Eve hype post)</div>
+            <div class="post-goal">🎯 Tags / Shares</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEK 6 -->
+    <div class="week-accordion">
+      <button class="week-header" onclick="toggleWeek(this)">
+        <div class="week-badge">Week 6</div>
+        <div class="week-info">
+          <div class="week-theme">🥂 World Cup Final + Summer Longtail</div>
+          <div class="week-dates">July 19–25</div>
+        </div>
+        <span class="week-arrow">▼</span>
+      </button>
+      <div class="week-body">
+        <div class="week-note">💡 <strong>Strategy note:</strong> Final July 19; pivot to evergreen summer booking after</div>
+        <div class="post-row">
+          <div class="post-day">Sun Jul 19</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#7B2D42">Story + Feed Post</span></div>
+            <div class="post-title">The Final Pour. We're Live. Join Us. 🏆🍷 [Location or Watch Party]</div>
+            <div class="post-goal">🎯 Event / FOMO</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Tue Jul 21</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#8B7355">Quote Graphic</span></div>
+            <div class="post-title">Customer Spotlight — Feature a guest from a summer event</div>
+            <div class="post-goal">🎯 Social Proof</div>
+          </div>
+        </div>
+        <div class="post-row">
+          <div class="post-day">Thu Jul 23</div>
+          <div class="post-info">
+            <div class="badges"><span class="badge" style="background:#C9973B">Static / Graphic</span></div>
+            <div class="post-title">Summer's not over. Neither are we. Book Syprose through September.</div>
+            <div class="post-goal">🎯 Evergreen Booking CTA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMAT LEGEND -->
+    <div class="legend-box">
+      <div class="legend-title">Format Key</div>
+      <div class="legend-badges">
+        <span class="badge" style="background:#7B2D42">Reel</span>
+        <span class="badge" style="background:#C9973B">Static Post</span>
+        <span class="badge" style="background:#1C3A5E">Carousel</span>
+        <span class="badge" style="background:#4A7C59">Story</span>
+        <span class="badge" style="background:#4A7C59">Story Series</span>
+        <span class="badge" style="background:#4A7C59">Story Poll</span>
+        <span class="badge" style="background:#2D5A3D">Talking Head Reel</span>
+        <span class="badge" style="background:#8B7355">Quote Graphic</span>
+        <span class="badge" style="background:#C9973B">Static / Graphic</span>
+        <span class="badge" style="background:#7B2D42">Story + Feed Post</span>
+      </div>
+    </div>
+
+    <div class="pro-tip"><strong>Pro tip:</strong> Batch-film content at your next pop-up setup — grab B-roll of the pour, the setup, guest reactions, and the table spread. One 2-hour shoot can fuel 3–4 weeks of Reels with minimal effort between events.</div>
+  </div>
+
+</div>
+
+<script>
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + tab).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function toggleAccordion(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    btn.classList.toggle('open', !isOpen);
+    body.classList.toggle('open', !isOpen);
+    btn.querySelector('.accordion-arrow').textContent = isOpen ? '▼' : '▲';
+  }
+
+  function toggleWeek(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    btn.classList.toggle('open', !isOpen);
+    body.classList.toggle('open', !isOpen);
+    btn.querySelector('.week-arrow').textContent = isOpen ? '▼' : '▲';
+  }
+</script>
+</body>
+</html>
